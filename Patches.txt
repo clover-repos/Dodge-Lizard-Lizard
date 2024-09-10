@@ -1,0 +1,2 @@
+(1): Made game faster as in less waiting time, bug fixes
+(2): Huge bug fix with music (web edition)

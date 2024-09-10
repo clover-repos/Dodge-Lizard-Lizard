@@ -19,7 +19,7 @@ function eat:update(dt)
     if self.timer > 0 then
       score = score + 0.5
 
-      self.drawTime = 0
+      self.drawTime = 0.01
     end
   end
 
@@ -29,9 +29,9 @@ end
 
 function eat:draw()
   if self.drawTime > 0 then
-    self.drawTime = self.drawTime - publicDT
+    if gamestate == "playstate" then self.drawTime = self.drawTime - publicDT end
 
-    love.graphics.draw(self.bug, 580, 200, nil, -3, 3)
+    love.graphics.draw(self.bug, self.bugX, self.bugY, nil, -3, 3)
 
     love.graphics.setColor(0, 0.25, 1)
       love.graphics.print("Eat!", 400, 100)
@@ -41,6 +41,9 @@ end
 
 function eat:startDraw()
   audio.dodge:play()
-  self.drawTime = 0.3
-  self.bug = eat.bugList[math.random(1, #eat.bugList)] --Bug types
+  self.drawTime = 0.4
+  eat.bugX.bug = eat.bugList[math.random(1, #eat.bugList)] --Bug types
+
+  self.bugX = 1
+  self.bugY = 1
 end

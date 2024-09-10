@@ -55,7 +55,7 @@ end
 
 function dodge:draw()
   if self.drawTime > 0 then
-    self.drawTime = self.drawTime - publicDT
+    if gamestate == "playstate" then self.drawTime = self.drawTime - publicDT end
 
     love.graphics.setColor(1, 0.25, 0)
       love.graphics.print("Dodge!!!", 400, 400)

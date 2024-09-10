@@ -2,12 +2,10 @@ player = {}
 
 
 function player:load()
-  self.x = windowWidth / 2 - 32 * 6
+  self.x = 218
   self.y = 200
 
-
   self.image = love.graphics.newImage("art/player/Lizard3.png")
-
 
   dodge.coolDown = 1.5
 

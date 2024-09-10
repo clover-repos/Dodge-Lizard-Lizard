@@ -68,7 +68,7 @@ function camera:update(dt)
     if self.timer < self.eatTime then
       eat:startDraw()
 
-      eat.timer = 0.6
+      eat.timer = 0.4
       self.eatTime = -10
     end
   end

@@ -4,8 +4,8 @@ eagle = {}
 eagle.animTimer = 0.25
 eagle.frame = 1
 
-eagle.y = -280
-eagle.speed = 250
+eagle.y = -340
+eagle.speed = 200
 
 eagle.image = love.graphics.newImage("art/eagle/Eagle1.png")
 
@@ -15,14 +15,14 @@ function eagle:update(dt)
   if dodge.timer and dodge.timer > 0 then
     self.y = self.y + self.speed * dt
 
-    if self.speed < 300 then self.speed = self.speed * 1.1 end
-  elseif self.y > -280 then
+    if self.speed < 265 then self.speed = self.speed * 1.1 end
+  elseif self.y > -340 then
     self.y = self.y - 110 * dt
   end
 end
 
 function eagle:draw()
-  love.graphics.draw(self.image, 10, self.y, nil, 8)
+  love.graphics.draw(self.image, 0, self.y, nil, 10)
 end
 
 function eagle:updateAnim(dt)

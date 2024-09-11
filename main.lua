@@ -7,6 +7,8 @@ function love.load()
 end
 
 function love.update(dt)
+  offsetX, offsetY, scaleX, scaleY, barWidth, barHeight, scaledGameWidth, scaledGameHeight = findScale()
+
   if dt > 0.1 then dt = 0.1 end --Update cap, fixes lag bugs
   publicDT = dt --For draw based timers
 
@@ -59,6 +61,11 @@ function love.update(dt)
 end
 
 function love.draw()
+  love.graphics.push()
+
+  love.graphics.translate(offsetX, offsetY)
+  love.graphics.scale(scaleX, scaleY)
+
   love.graphics.setBackgroundColor(0.1, 0.31, 0.3) --Background
 
   if gamestate == "playstate" or gamestate == "idle" then
@@ -91,4 +98,7 @@ function love.draw()
   else
     love.graphics.print("You got eaten." .. highString, 265, 300)
   end
+  love.graphics.pop()
+
+  applyCrop(findScale())
 end

@@ -19,6 +19,7 @@ function startUp()
   baton = require("lib.baton")
   require("source.input")
 
+  require("source.scale")
   require("source.camera")
   require("source.entities.entity")
   require("source.titlescreen")

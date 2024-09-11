@@ -19,7 +19,7 @@ end
 
 function titlescreen:draw()
   love.graphics.setColor(0.1, 0.1, 0.2)
-    love.graphics.rectangle("fill", 0, 0, windowWidth, windowHeight)
+    love.graphics.rectangle("fill", 0, 0, windowWidth / scaleX, windowHeight / scaleY)
   love.graphics.setColor(1, 1, 1)
 
   love.graphics.print("Start game...\n\nControlls:\nDown is dodge!\nUp is eat!", 10, 10)

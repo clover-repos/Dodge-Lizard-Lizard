@@ -1,16 +1,22 @@
 player = {}
 
+player.frames = {
+  love.graphics.newImage("art/player/Lizard1.png"),
+  love.graphics.newImage("art/player/Lizard2.png"),
+  love.graphics.newImage("art/player/Lizard3.png"),
+  love.graphics.newImage("art/player/Lizard4.png")
+}
 
 function player:load()
-  self.x = 218
+  self.x = 220
   self.y = 200
-
-  self.image = love.graphics.newImage("art/player/Lizard3.png")
 
   dodge.coolDown = 1.5
 
   player.frame = 3
   player.animTimer = 1.75
+
+  player:updateAnim(0)
 end
 
 function player:update(dt)
@@ -37,5 +43,5 @@ function player:updateAnim(dt)
     self.animTimer = 0.22
   end
 
-  self.image = love.graphics.newImage("art/player/Lizard" .. self.frame .. ".png")
+  self.image = self.frames[self.frame]
 end

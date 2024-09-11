@@ -42,7 +42,7 @@ end
 function eat:startDraw()
   audio.dodge:play()
   self.drawTime = 0.4
-  eat.bugX.bug = eat.bugList[math.random(1, #eat.bugList)] --Bug types
+  eat.bug = eat.bugList[math.random(1, #eat.bugList)] --Bug types
 
   self.bugX = 1
   self.bugY = 1

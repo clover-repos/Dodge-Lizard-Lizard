@@ -7,7 +7,7 @@ eat.timer = 0
 eat.bugList = {
   love.graphics.newImage("art/bugs/Ladybug.png"),
   love.graphics.newImage("art/bugs/Beetle.png"),
-  love.graphics.newImage("art/bugs/GreenLadybug.png")
+  love.graphics.newImage("art/bugs/Green_Ladybug.png")
 }
 
 function eat:update(dt)

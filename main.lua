@@ -37,7 +37,7 @@ function love.update(dt)
       audio.start:play()
     end
   else
-    ground.update(sky, dt, 40)
+    ground.update(sky, dt, 10)
   end
 
   if inputs:pressed "action" then
@@ -57,7 +57,6 @@ function love.update(dt)
   else
     highString = ""
   end
-
 end
 
 function love.draw()
@@ -101,4 +100,14 @@ function love.draw()
   love.graphics.pop()
 
   applyCrop(findScale())
+end
+
+function love.keypressed(key)
+  if key == "f11" or key == "return" and love.keyboard.isDown("lalt") or key == "lalt" and love.keyboard.isDown("return") then
+    if love.window.getFullscreen() then
+      love.window.setFullscreen(false)
+    else
+      love.window.setFullscreen(true)
+    end
+  end
 end

@@ -1,6 +1,5 @@
---This file is for eating and dodging
-
 dodge = {}
+
 
 dodge.drawTime = 0
 dodge.time = 0.5

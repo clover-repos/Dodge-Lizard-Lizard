@@ -7,7 +7,12 @@ eagle.frame = 1
 eagle.y = -340
 eagle.speed = 200
 
-eagle.image = love.graphics.newImage("art/eagle/Eagle1.png")
+eagle.frames = {
+  love.graphics.newImage("art/eagle/Eagle1.png"),
+  love.graphics.newImage("art/eagle/Eagle2.png")
+}
+
+eagle.image = eagle.frames[eagle.frame]
 
 function eagle:update(dt)
   self:updateAnim(dt)
@@ -38,5 +43,5 @@ function eagle:updateAnim(dt)
       self.animTimer = 0.25
   end
 
-  self.image = love.graphics.newImage("art/eagle/Eagle" .. self.frame .. ".png")
+  self.image = self.frames[self.frame]
 end

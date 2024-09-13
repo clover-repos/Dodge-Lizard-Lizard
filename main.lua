@@ -3,7 +3,6 @@ function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest") --Makes pixel art not blurr
 
     require("source.startup") --Imports extra stuff for the game
-    startUp() --Calls startup file's function
 end
 
 function love.update(dt)
@@ -26,7 +25,7 @@ function love.update(dt)
     camera:update(dt) --From eating to bird-dodging..
   elseif gamestate == "titlescreen" then
     titlescreen:update(dt)
-  elseif gamestate == 'death' then
+  elseif gamestate == "death" then
     if inputs:released "action" then
       love.timer.sleep(0.35)
       score = 0
@@ -42,11 +41,11 @@ function love.update(dt)
 
   if inputs:pressed "action" then
     if gamestate == "playstate" then
-      gamestate = 'idle'
+      gamestate = "idle"
 
       audio.death:play()
     elseif gamestate == "idle" then
-      gamestate = 'playstate'
+      gamestate = "playstate"
 
       audio.start:play()
     end
@@ -76,7 +75,7 @@ function love.draw()
       love.graphics.draw(ground.image, 0 - ground.offX, 230, nil, 10)
     camera:detach()
 
-    love.graphics.draw(foreground.image, 0 - foreground.offX, 350 + camera.y / 2, nil, 10)
+    love.graphics.draw(forgeground.image, 0 - forgeground.offX, 350 + camera.y / 2, nil, 10)
 
 
     dodge:draw()

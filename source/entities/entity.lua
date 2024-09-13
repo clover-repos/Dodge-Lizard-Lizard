@@ -17,7 +17,7 @@ function entities:update(dt)
   ground:update(dt)
 
   ground.update(sky, dt, 95)
-  ground.update(foreground, dt, 300, 1600)
+  ground.update(forgeground, dt, 300, 1600)
 end
 
 function entities:draw()

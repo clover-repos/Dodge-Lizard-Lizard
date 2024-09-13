@@ -9,30 +9,29 @@ sky.image = love.graphics.newImage("art/sky.png")
 sky.offX = 0
 
 
-foreground = {}
+forgeground = {}
 
-foreground.image = love.graphics.newImage("art/foreground.png")
-foreground.offX = 0
-
-
-function startUp()
-  baton = require("lib.baton")
-  require("source.input")
-
-  require("source.scale")
-  require("source.camera")
-  require("source.entities.entity")
-  require("source.titlescreen")
-  require("source.audio")
-  require("source.dodge")
-  require("source.eat")
+forgeground.image = love.graphics.newImage("art/forgeground.png")
+forgeground.offX = 0
 
 
-  entities:load()
-  titlescreen:load()
-end
+baton = require("lib.baton")
+require("source.input")
+
+require("source.scale")
+require("source.camera")
+require("source.entities.entity")
+require("source.titlescreen")
+require("source.audio")
+require("source.dodge")
+require("source.eat")
+
+
+entities:load()
+titlescreen:load()
 
 font = love.graphics.newFont("fonts/dpcomic.ttf", 38)
 love.graphics.setFont(font)
 
 love.mouse.setVisible(false)
+love.window.setMode(800, 450) --16x9 aspect ratio

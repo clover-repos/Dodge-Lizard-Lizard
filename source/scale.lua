@@ -6,6 +6,7 @@ function findScale()
   local windowAspect = windowWidth / windowHeight
 
   local scaleX, scaleY
+
   if gameAspect > windowAspect then
       scaleX = windowWidth / gameWidth
       scaleY = scaleX
@@ -14,7 +15,8 @@ function findScale()
       scaleX = scaleY
   end
 
-  -- Center the game content
+
+  --Center the game content
   local offsetX = (windowWidth - gameWidth * scaleX) / 2
   local offsetY = (windowHeight - gameHeight * scaleY) / 2
 

@@ -14,6 +14,7 @@ forgeground = {}
 forgeground.image = love.graphics.newImage("art/forgeground.png")
 forgeground.offX = 0
 
+idleRectTrans = 0
 
 baton = require("lib.baton")
 require("source.input")

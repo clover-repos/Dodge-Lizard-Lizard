@@ -27,23 +27,23 @@ function camera:update(dt)
 
   if self.timer <= 0 then
     if self.state == 1 then
-      self.y = self.y - 350 * dt
+      self.y = self.y - 450 * dt
 
       if self.y <= self.topY then
-        self.timer = 5
+        self.timer = 3
         self.state = 2
       end
 
-      self.eatTime = math.random(1, 4)
+      self.eatTime = math.random(0, 2)
     elseif self.state == 2 then
-      self.y = self.y + 350 * dt
+      self.y = self.y + 450 * dt
 
       if self.y >= self.bottomY then
         self.timer = 10
         self.state = 1
 
         self.dodgeTime = math.random(1, 5)
-        self.secondDodgeTime = math.random(6.5, 9)
+        self.secondDodgeTime = math.random(6.75, 9)
       end
     end
   end

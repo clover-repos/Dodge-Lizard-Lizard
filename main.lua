@@ -23,6 +23,22 @@ function love.update(dt)
   if gamestate == "playstate" then
     entities:update(dt) --Player, and enemies update
     camera:update(dt) --From eating to bird-dodging..
+  elseif gamestate == "idle" then
+    if idleRectTrans == 0.9999 then
+      idletoplay = true
+    elseif idleRectTrans < 1 and not idletoplay then
+      idleRectTrans = idleRectTrans + 5 * dt
+    end
+
+    if idletoplay then
+      idleRectTrans = idleRectTrans - 5 * dt
+
+      if idleRectTrans <= 0 then
+        idleRectTrans = 0
+        gamestate = "playstate"
+        idletoplay = nil
+      end
+    end
   elseif gamestate == "titlescreen" then
     titlescreen:update(dt)
   elseif gamestate == "death" then
@@ -45,8 +61,7 @@ function love.update(dt)
 
       audio.death:play()
     elseif gamestate == "idle" then
-      gamestate = "playstate"
-
+      idleRectTrans = 0.9999
       audio.start:play()
     end
   end
@@ -91,6 +106,12 @@ function love.draw()
     end
 
     love.graphics.setColor(1, 1, 1)
+
+    if gamestate == "idle" then
+      love.graphics.setColor(0,0,0, idleRectTrans)
+      love.graphics.rectangle("fill", 0, 0, 1000, 1000)
+      love.graphics.setColor(1, 1, 1)
+    end
   elseif gamestate == "titlescreen" then
     titlescreen:draw()
   else

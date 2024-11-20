@@ -14,6 +14,8 @@ function player:load()
   dodge.coolDown = 1.5
 
   player.frame = 3
+  player.playFrame = 3
+
   player.animTimer = 1.75
 
   player:updateAnim(0)
@@ -41,6 +43,10 @@ function player:updateAnim(dt)
     end
 
     self.animTimer = 0.22
+  end
+
+  if gamestate ~= "idle" then
+    player.playFrame = player.frame
   end
 
   self.image = self.frames[self.frame]

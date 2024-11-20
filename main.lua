@@ -37,6 +37,7 @@ function love.update(dt)
         idleRectTrans = 0
         gamestate = "playstate"
         idletoplay = nil
+        player.image = player.frames[player.playFrame]
       end
     end
   elseif gamestate == "titlescreen" then
@@ -110,6 +111,9 @@ function love.draw()
     if gamestate == "idle" then
       love.graphics.setColor(0,0,0, idleRectTrans)
       love.graphics.rectangle("fill", 0, 0, 1000, 1000)
+      love.graphics.setColor(1,1,1, idleRectTrans)
+      player.image = player.frames[3]
+      player:draw()
       love.graphics.setColor(1, 1, 1)
     end
   elseif gamestate == "titlescreen" then

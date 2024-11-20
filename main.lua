@@ -24,7 +24,7 @@ function love.update(dt)
     entities:update(dt) --Player, and enemies update
     camera:update(dt) --From eating to bird-dodging..
   elseif gamestate == "idle" then
-    if idleRectTrans == 0.9999 then
+    if idleRectTrans == 1.0001 then
       idletoplay = true
     elseif idleRectTrans < 1 and not idletoplay then
       idleRectTrans = idleRectTrans + 5 * dt
@@ -61,7 +61,7 @@ function love.update(dt)
 
       audio.death:play()
     elseif gamestate == "idle" then
-      idleRectTrans = 0.9999
+      idleRectTrans = 1.0001
       audio.start:play()
     end
   end
